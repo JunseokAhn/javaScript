@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>array</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		var a = [1, 'st', 'egoing']
+		document.write(a[0])
+		document.write(a[1])
+		document.write(a[2])
+
+		document.write('<br/>')
+
+		function b(){
+			return [2, 'nd', 'egoing'];
+		}
+
+		var b2 = b();
+		
+		for(var i=0; i<b2.length; i++){
+			document.write(b2[i])
+		}
+
+		document.write('<br/>')
+
+		var c = [3, 'rd', 'e']
+		c.push('g')
+		c=c.concat(['oi', 'ng'])
+
+		document.write(c)
+
+		document.write('<br/>')
+
+		var d = ['nd', 'engoing']
+
+		d.unshift(4)
+
+		d.splice(1, 1, 'rd')
+
+		document.write(d+'<br/>')
+
+		var li = ['a', 'b', 'c', 'd', 'e'];
+		li.shift();
+		li.pop();
+
+		document.write(li+'<br/>')
+
+		li.reverse()
+
+		document.write(li+'<br/>')
+
+		li.sort()
+
+		document.write(li+'<br/>')
+
+		li.splice(1, 1)
+
+		document.write(li+'<br/>')
+
+	</script>
+</body>
+</html>
