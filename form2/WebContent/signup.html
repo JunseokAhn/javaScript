@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+</head>
+<body>
+	<form action="Main.html" method="post">
+		<fieldset>
+			<legend>기본 정보</legend>
+			<ul>
+				<li>ID<br> <input type="text" name="id"></li>
+				<li>PW<br> <input type="password" name="pw"></li>
+
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>부가 정보</legend>
+			<ul>
+				<li>성별 <br> <input id="male" type="radio" name="gender"
+					value="남자"> <label for="male">남자</label><br> <input
+					id="female" type="radio" name="gender" value="여자"> <label
+					for="female">여자</label><br></li>
+				<li>지역<br> <select id="address" name="지역">
+						<optgroup label="수도권">
+							<option>서울</option>
+							<option>수원</option>
+						</optgroup>
+						<optgroup label="지방">
+							<option>대구</option>
+							<option>대전</option>
+						</optgroup>
+				</select></li>
+				<li>취미<br> <input type="checkbox" name="취미" value="운동">운동
+					<input type="checkbox" name="취미" value="게임">게임 <input
+					type="checkbox" name="취미" value="노래">노래
+				</li>
+			</ul>
+			<fieldset id="syoukai" name="자기소개">
+				<legend>자기소개</legend>
+				<textarea rows="10" cols="120">時宜紹介をしてください.</textarea>
+			</fieldset>
+		</fieldset>
+
+		<input type="submit" value="회원가입"> <input type="reset"
+			value="되돌리기"> <br> <input type="button" value="그냥 버튼">
+	</form>
+</body>
+</html>
