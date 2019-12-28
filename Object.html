@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var num = {'a':10, 'b':20, 'c':30}
+
+		var num = {}
+		num ['a']=20
+
+		document.write(num['a']+'<br/>')
+
+		var num = new Object()
+		num ['a'] = 30
+		num ['b'] = 40
+		num.c=50
+
+		for(key in num){
+			document.write('key = '+key+' value = '+num[key]+'<br/>')
+		}
+
+		var num = {
+			'list' : {'a':10, 'b':20, 'c':30},
+			'list2' : function(){
+				document.write('list2<br/>')
+				document.write(this.list+'<br/>')
+				console.log(this.list)
+			}
+		}
+
+		num['list2']()
+
+		for(key in num['list']){
+			document.write('key = '+key+' value = '+num['list'][key]+'<br/>')
+		}		
+
+		var num = {
+			'list' : {'a':30, 'b':40, 'c':50},
+			'list2' : function(){
+				for(var d in this.list)
+					document.write('key = '+d+' value = '+num.list[d]+'<br/>')
+			}
+		}
+		num.list2();
+
+	
+	</script>
+</body>
+</html>
