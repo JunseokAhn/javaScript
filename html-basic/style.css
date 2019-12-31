@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+p {
+	font-style: "돋움";
+}
+
+title {
+	font-style: "굴림";
+}
+
+body {
+	background-color: #fbf9cc;
+}
+
+span {
+	color: blue;
+}
+
+.특징 {
+	font-size: 80%;
+}
+
+#紹介 {
+	font-weight: bold;
+}
+
+a {
+	color: lime;
+}
+
+a:focus {
+	color: red;
+}
+
+h2 {
+	text-shadow: 3px 2px 4px gray;
+}
