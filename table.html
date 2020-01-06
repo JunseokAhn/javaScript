@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		window.onload = function() {
+			var today = new Date();
+			var year = today.getFullYear();
+			var month = today.getMonth() + 1
+			var date = today.getDate()
+			var hour = today.getHours()
+			var min = today.getMinutes()
+			var second = today.getSeconds()
+			console.log(today, year, month, date, hour, min, second);
+
+			switch (hour) {
+			case 12:
+				console.log('점심식사')
+				break;
+			case 13:
+			case 14:
+			case 15:
+				console.log("IT수업")
+				break;
+			case 5:
+				console.log("저녁식사")
+				break;
+			case 9:
+			case 10:
+			case 11:
+				console.log("일본어 수업")
+				break;
+			case 16:
+				console.log("IR")
+			}
+
+			var str = "Word Holle"
+			for (var i = 0; i < str.length; i++)
+				console.log(str.charAt(i))
+
+			for ( var i in str)
+				console.log(str.charAt(i))
+			var sum = 0
+			for (var i = 1; i < 101; i++)
+				sum += i
+			console.log(sum)
+			var gop = 1
+			for (var i = 1; i < 101; i++)
+				gop *= i
+			console.log(gop)
+
+			var ary = [ 52, 273, 103, 32, 57, 103, 31, 2 ]
+			var max = 0
+			var min = 999
+			for (var i = 0; i < ary.length; i++) {
+				if (ary[i] > max)
+					max = ary[i]
+				if (ary[i] < min)
+					min = ary[i]
+			}
+
+			console.log(max, min)
+
+			var ary = [ 1, 2, 3, 'oh', 4.5, [ 'this', 'is', 5 ], {
+				"name" : "kildong"
+			} ]
+			console.log(ary[6].name)
+
+			var sample = [ {
+				"name" : "홍길동",
+				"age" : 30
+			}, {
+				"name" : "손오공",
+				"age" : 26
+			}, {
+				"name" : "전우치",
+				"age" : 38
+			} ]
+			console.log(sample[1].name)
+
+			var tag = '<table border="1">'
+			/* 	for(var i in sample){
+					tag += 'name = ' + sample[i].name + ', age = ' + sample[i].age+'<br>'
+				}
+				document.getElementById("result").innerHTML = tag
+				} */
+			for ( var i in sample) {
+				tag += "	<tr>"
+				tag += "		<td>" + sample[i].name + "</td>"
+				tag += "		<td>" + sample[i].age + "</td>"
+				tag += "	</tr>"
+			}
+			tag += "</table>"
+			document.getElementById("result").innerHTML = tag
+		}
+	</script>
+	<div id="result"></div>
+</body>
+</html>
