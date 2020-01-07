@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="signUpMenu.css" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>회원가입</h1>
+		<form action="" method="post">
+			<table border="1">
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="userId" id="userId" placeholder="id"></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="userPw" id="userPw" placeholder="password"></td>
+				<tr>
+					<td>비밀번호 확인</td>
+					<td><input type="password" name="userPw2" id="userPw2"></td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" name="userName" id="userName"></td>
+				</tr>
+				<tr>
+					<td>성별</td>
+					<td><input type="radio" name="gender" value="여자" checked="checked"> 여자 <input type="radio" name="gender" value="남자"> 남자</td>
+				</tr>
+				<tr>
+					<td>전화번호</td>
+					<td><select name="phone1" id="phone1">
+							<option value="010" selected="selected">010</option>
+							<option value="011">011</option>
+							<option value="017">017</option>
+							<option value="019">019</option>
+					</select> <input type="text" id="phone2" name="phone2"> - <input type="text" id="phone3" name="phone3"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="button" value="회원가입" id="memberJoin" onclick="join()"> <input type="button" value="취소" onclick="cancle()"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div id="result"></div>
+	<script src="signUpMenu.js">
+		
+	</script>
+</body>
+</html>
