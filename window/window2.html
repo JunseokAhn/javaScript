@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>첫화면</h2>
+	<p>창열기</p>
+	<p>
+		<input type="button" value="열기" onclick="winopen()">
+	</p>
+	<p>
+		<input type="button" value="롤인벤" onclick="openLoL()">
+	</p>
+	<hr>
+	<div id="count">0</div>
+	<textarea id="area" rows="5" cols="50"></textarea>
+	<br>
+	<hr>
+	<p id="header">클릭해주세요</p>
+	<p id="header2">클릭해주세요</p>
+	<script type="text/javascript">
+		function winopen() {
+			window.open("window.html", "gongji",
+					"top=10px, left=50px, width=100px, height=200px")
+		}
+		function openLoL() {
+			location.href = "http://lol.inven.co.kr"
+
+			//	window.open("http://lol.inven.co.kr")
+		}
+		var header = document.getElementById("header")
+		/* header.onclick = function() {
+			this.style.color = "red"
+		} */
+		header.onclick = function() {
+			this.style.color = "red"
+		}
+		var header2 = document.getElementById("header2")
+		header2.onmouseover = function() {
+			this.style.color = "red"
+			this.style.backgroundColor = "yellow"
+		}
+		header2.onmouseout = function() {
+			this.style.color = "black"
+			this.style.backgroundColor = "white"
+		}
+		var area = document.getElementById("area")
+		area.onkeyup = function() {
+			var text = area.value
+			var size = text.length
+			document.getElementById("count").innerHTML = size
+		}
+	</script>
+</body>
+</html>
