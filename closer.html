@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function outter(){
+			var title = 'coding everybody <br>'
+			return function(){
+				document.write(title)
+			}
+		}
+		var inner = outter()
+		inner()
+
+		function factory(title){
+			return {
+				get_title : function(){
+					return title
+				},
+				set_title : function(_title){
+					title = _title
+				}
+			}	
+		}
+
+		var naruhodo = factory('naruhodo <br>')
+		var mayoi = factory('mayoi <br>')
+		document.write(naruhodo.get_title())
+		document.write(mayoi.get_title())
+		naruhodo.set_title('miturugi <br>')
+		mayoi.set_title('itonoko <br>')
+		document.write(naruhodo.get_title())
+		document.write(mayoi.get_title())
+
+		function outter2(){
+			function inner(){
+				var title = 'coding everybody <br>'
+				document.write(title)
+			}
+			inner()
+		}
+		outter2()
+
+		var arr = []
+		for(var i = 0; i < 5; i++){
+			arr[i] = function(){
+				return i
+			}
+		}
+		for(var index in arr) {
+			console.log(arr[index]())
+		}
+
+		var arr = []
+		for(var i = 0; i < 5; i++){
+			arr[i] = function(i) {
+				return function(){
+					return i
+				}
+			}(i)
+		}
+		for(var index in arr) {
+			console.log(arr[index]())
+		}
+
+	</script>
+</body>
+</html>
