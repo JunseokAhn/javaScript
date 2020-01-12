@@ -26,7 +26,7 @@
 		<br>
 		생각은 지극히 자기중심적, 골판지상자, 모서리나 기둥에 발톱 갈기를 좋아한다.
 	</p>
-	<img alt="" src="고양이3.jpg" width="320" height="160">
+	<img alt="" src="source/고양이3.jpg" width="320" height="160">
 	<pre>
 특징:
 				커다란 눈과 귀, 말린 꼬리
@@ -42,7 +42,7 @@
 		<br>
 		긴 털을 가진 혈통이 섞였는지 털이 부드럽고 푹신푹신하게 부풀어 있어 가족들이 털복숭이라고 부른다
 	</p>
-	<img alt="" src="고양이2.jpg" width="320" height="190">
+	<img alt="" src="source/고양이2.jpg" width="320" height="190">
 	<pre>
 특징:
 				쉰 목소리, 데굴데굴 구르며 공격
@@ -58,7 +58,7 @@
 		<br>
 		긴 털을 가진 혈통이 섞였는지 털이 부드럽고 푹신푹신하게 부풀어 있어 가족들이 털복숭이라고 부른다
 	</p>
-	<img alt="" src="고양이1.jpg" width="320" height="220 ">
+	<img id = 'neko'alt="" src="source/고양이1.jpg" width="320" height="220 ">
 	<pre>
 특징:
 				쉰 목소리, 데굴데굴 구르며 공격
@@ -85,5 +85,16 @@
 	</p>
 	<a href="">응모는 이쪽>></a>
 
+<script type="text/javascript">
+	var i=0
+	var neko = document.getElementById('neko')
+	setinterval(fucntion(){
+		i++
+		neko.setAttribute(img, 'href', '고양이'+i+'.png')
+		if(i==3)
+			i=0
+	}, 1000)
+
+</script>
 </body>
 </html>
