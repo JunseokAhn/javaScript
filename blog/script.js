@@ -10,9 +10,18 @@ function signUp() {
 	}
 	var area = document.getElementById("area").value
 	var address = document.getElementById("address").value
-
-	console.log(userId, userPw, userName, gender, area, address)
-	if(userName.length<1){
+	var h = document.getElementsByName("취미")
+	var hobby=''
+	for(var i=0; i<h.length; i++){
+		if(h[i].checked){
+			hobby+=h[i].value+' '
+		}
+	}
+	console.log(userId, userPw, userName, gender, area, address, hobby)
+	//
+	//setime
+	//도형 window.open, window.close
+	/*if(userName.length<1){
 		alert("이름을 입력해주세요")
 		document.getElementById("userName").select()
 		return
@@ -61,12 +70,12 @@ function signUp() {
 		alert("주소를 입력해주세요")
 		document.getElementById("address").select()
 	}
+	*/
+	var arr = userId +" "+ userPw+" "+ userName+" "+gender+" "+area+" "+address+" "+hobby
+	document.getElementById("result").innerHTML = arr
 	
+	document.userInput.submit()
 	
-	
-	
-	var userInput = document.userInput
-	userInput.submit()
 }
 
 function redo() {
@@ -76,4 +85,7 @@ function redo() {
 	document.getElementById("area").value = '서울'
 	document.getElementById("address").value = ''
 
+}
+function closeWindow(){
+	this.window.close("signUp.html")
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>회원가입</title>
-<link href="style.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>회원가입</title>
+	<link href="style.css" rel="stylesheet">
 </head>
 <body>
 	<form action="Main.html" method="post" name="userInput">
@@ -67,10 +67,21 @@
 					<textarea id="address" rows="3" cols="20" placeholder="주소를 기입하세요"></textarea>
 				</td>
 			</tr>
+			<tr>
+				<td>
+					취미
+				</td>
+				<td>
+					<input type="checkbox" name="취미" value="농구">농구
+					<input type="checkbox" name="취미" value="배구">배구
+					<input type="checkbox" name="취미" value="야구">야구
+				</td>
+			</tr>
 		</table>
 		<input  type="button" value="회원가입" onclick=signUp()>
 		<input  type="button" value="지우기" onclick="redo()">
 		<input  type="button" value="로그인 화면으로" onclick="location.href='Main.html'">
+		<input type="button" value="창닫기" onclick="closeWindow()">
 	</form>
 	<script src="script.js"></script>
 </body>
