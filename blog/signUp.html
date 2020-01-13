@@ -4,9 +4,10 @@
 	<meta charset="UTF-8">
 	<title>회원가입</title>
 	<link href="style.css" rel="stylesheet">
+	<script src="script.js"></script>
 </head>
 <body>
-	<form action="Main.html" method="post" name="userInput">
+	<form action="" method="post" name="userInput">
 		<table border="1" >
 			<tr>
 				<td>
@@ -78,11 +79,11 @@
 				</td>
 			</tr>
 		</table>
-		<input  type="button" value="회원가입" onclick=signUp()>
+		<input  type="button" value="회원가입" onclick="signUp();">
 		<input  type="button" value="지우기" onclick="redo()">
 		<input  type="button" value="로그인 화면으로" onclick="location.href='Main.html'">
 		<input type="button" value="창닫기" onclick="closeWindow()">
 	</form>
-	<script src="script.js"></script>
+	
 </body>
 </html>

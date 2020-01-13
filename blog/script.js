@@ -1,3 +1,9 @@
+var opener2
+
+window.onload = function() {
+	opener2 =window.opener;
+}
+
 function signUp() {
 	var userId = document.getElementById("userId").value
 	var userPw = document.getElementById("userPw").value
@@ -18,9 +24,8 @@ function signUp() {
 		}
 	}
 	console.log(userId, userPw, userName, gender, area, address, hobby)
-	//
-	//setime
-	//도형 window.open, window.close
+
+
 	/*if(userName.length<1){
 		alert("이름을 입력해주세요")
 		document.getElementById("userName").select()
@@ -72,9 +77,11 @@ function signUp() {
 	}
 	*/
 	var arr = userId +" "+ userPw+" "+ userName+" "+gender+" "+area+" "+address+" "+hobby
-	document.getElementById("result").innerHTML = arr
+	console.log(opener2);
+	opener2.document.getElementById("result").innerHTML = arr
 	
 	document.userInput.submit()
+
 	
 }
 
