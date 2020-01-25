@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>
+		<a id="naver" href="http://www.naver.com">
+			<img id="icon1" alt="" src="icon1.png">네이버 <img id="icon2" alt="" src="icon2.png">
+		</a>
+	</h2>
+	<script type="text/javascript">
+		var naver = document.getElementById("naver")
+		naver.setAttribute("href", "http://www.daum.net")
+		var icon1 = document.getElementById("icon1")
+		icon1.onmouseover = function() {
+			icon1.setAttribute("src", "icon2.png")
+		}
+		icon1.onmouseout = function() {
+			icon1.setAttribute("src", "icon1.png")
+		}
+
+		var n = 0
+		var temp = setInterval(function() {
+			n++
+			icon2.setAttribute("src", "icon" + n + ".png")
+			if (n == 2)
+				n = 0
+		}, 2000)
+	</script>
+</body>
+</html>

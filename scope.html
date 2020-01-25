@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var global = 'global'
+
+
+		function local(){
+			var global = 'local'
+			global = 'local	'
+		}
+		local()
+		document.write(global+'<br>')
+
+		function a (){
+			var i = 0;
+		}
+		for(var i = 0; i < 5; i++){
+			a();
+			document.write(i);
+		}
+		document.write('<br>')
+		var O = {}
+		O.calculator = {
+			'left' : null,
+			'right' : null
+		}
+		O.calculator.left=10;
+		O.calculator.right=20;
+		function sum(){
+			return O.calculator.left+O.calculator.right
+		}
+		document.write(sum()+'<br>')
+
+		var i = 5;
+
+		function b(){
+			var i = 10;
+			c();
+		}
+
+		function c(){
+			document.write(this.i);
+		}
+
+		b();
+	</script>
+</body>
+</html>

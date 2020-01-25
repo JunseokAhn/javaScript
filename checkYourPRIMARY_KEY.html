@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>주민번호 유효성 검증</title>
+<script>
+function jumin() {
+	var jumin1 = document.getElementById("jumin1");
+	var jumin2 = document.getElementById("jumin2");
+	
+	if(jumin1.value.trim().length != 6 || isNaN(jumin1.value)) {
+		alert("주민번호 앞자리를 정확히 입력해주세요");
+		jumin1.select();
+		jumin1.focus();
+		return;
+	}
+	
+	if(jumin2.value.trim().length != 7 || isNaN(jumin2.value)) {
+		alert("주민번호  뒷자리를 정확히 입력해주세요");
+		jumin2.select();
+		jumin2.focus();
+		return;
+	}
+	
+	// 주민번호에서 성별을 읽어옴
+	var gender = (jumin2.value)[0];
+
+	if(!(gender == "1" || gender == "2" || gender == "3" || gender == "4" )) {
+		alert("주민번호를 정확히 입력해주세요");
+		jumin2.select();
+		jumin2.focus();
+		return;
+	}
+	// 일반오류 검증 완료
+	
+	// 주민번호 체크값 확인
+	var jumin = jumin1.value + jumin2.value;
+	var total = 0, valid=0;
+	var cnt = 2; 
+	for(var i=0; i<jumin.length-1 ; i++, cnt++) {
+		if (cnt == 10) cnt = 2; 
+		total += parseInt(jumin[i]) * cnt;
+	}
+	valid = parseInt(total / 11) * 11.0 + 11.0 - total;
+	valid = valid - parseInt(valid / 10.0) * 10.0;
+		
+	if(valid!= jumin[jumin.length-1]) {
+		alert("주민번호 오류입니다. 처음부터 다시 입력해 주세요");
+		remove();
+		
+		return;
+	}
+	
+	var birthYear, birthMonth, birthday, age, sex, temp;
+	
+	if(gender == "1" || gender == "3" ) sex ="남자";
+	else sex = "여자";
+	
+	if(gender == "1" || gender == "2" ) birthYear ="19";
+		else birthYear ="20";
+	
+	var today = new Date();
+	
+	birthYear += jumin1.value.substr(0, 2); 
+	age = today.getFullYear() - parseInt(birthYear);
+	
+	birthMonth = jumin1.value.substr(2, 2);
+	birthday   = jumin1.value.substr(4, 2);
+	
+	temp = birthYear+"년 " +birthMonth + "월, " + birthday +"일생 " + sex + ", " + age + "살"
+	document.getElementById("result").innerHTML = temp;
+}
+
+function remove() {
+	jumin1.value = "";
+	jumin2.value = "";
+	document.getElementById("result").innerHTML = "";
+}
+</script>
+</head>
+<body>
+<h2>[주민번호 검증 프로그램]</h2>
+<div>주민번호 입력 : 
+	<input id="jumin1" 	type="text" />-<input id="jumin2" type="password" />
+	<input id="btn" 	type="button" value="검증하기"  onclick="jumin()"/>
+	<input id="clear" 	type="button" value="지우기"   onclick="remove()"/>
+</div>
+<div id="result"></div>
+</body>
+</html>

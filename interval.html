@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var temp
+		var temp3
+		window.onload = function() {
+			/* 	var test = setTimeout(function() {
+					alert("1초 경과")
+				}, 1000);
+
+				var test = setInterval(function() {
+					alert("2초 경과")
+				}, 2000)
+			} */
+			//document.getElementById*(.onclick = function(){stop()})
+			var result = document.getElementById("result")
+
+			temp = setInterval(function() {
+				var currTime = new Date()
+				var hour = currTime.getHours()
+				var min = currTime.getMinutes()
+				var second = currTime.getSeconds()
+				var str = hour+':'+ min+':'+ second
+				result.innerHTML = str
+			}, 1000);
+
+			temp3 = setTimeout(function() {
+				clearInterval(temp)
+				alert("시간 정지")
+			}, 4999)
+
+		}
+		function temp2() {
+			clearInterval(temp)
+			clearTimeout(temp3)
+			alert("시간 정지")
+		}
+	</script>
+	<div id="result"></div>
+	<div>
+		<input type="button" value="5초전에 눌러라" onclick="temp2()">
+	</div>
+</body>
+</html>

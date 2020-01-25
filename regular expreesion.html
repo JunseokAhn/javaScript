@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		var pattern = /a/
+
+		document.write(pattern.exec('abc')+'<br>')
+		document.write(pattern.exec('bc')+'<br>')
+
+		document.write(pattern.test('abc')+'<br>')
+		document.write(pattern.exec('bc')+'<br>')
+
+		document.write('abc'.match(pattern)+'<br>')
+		document.write('abc'.replace(pattern, 'A')+'<br>')
+
+		var pattern = /a/i
+		document.write(pattern.exec('ABCA')+'<br>')
+
+		var pattern = /a/g
+		document.write('abca'.match(pattern)+'<br>')
+
+		var pattern = /(\w+)\s(\w+)/g
+		var str = 'abc def'
+		var result = str.replace(pattern, '$2, $1')
+		document.write(result+'<br>')
+
+		var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim
+		var content = '생활코딩 : http://opentutorials.org/course/1 입니다. 네이버 : http://naver.com 입니다. '
+		var result = content.replace(urlPattern, function(url){
+			return '<a href="'+url+'">'+url+'</a>'
+		})
+		document.write(result)
+
+	</script>
+</body>
+</html>

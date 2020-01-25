@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+textarea {
+	resize: none;
+} 
+
+body {
+	background-color : #fbf9cc;
+	background-image: url(source/back.png);
+	position: absolute;
+}
+fieldset{
+	background-color : white;
+}
+table {
+	
+	background-color : white;
+}
+span{
+	color : blue;
+}
+a{
+	color : black;
+}
+a:hover{
+	color : blue;
+}
+a:focus{
+	color : red;
+}
+
+.img-cov{
+	
+	background-color: white;
+	opacity: 0.3;
+	
+	width: 100%;
+	z-index: -1;
+	
+}

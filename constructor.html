@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var person = {}
+		person.name = 'egoing';
+		person.introduce = function(){
+			return 'My name is '+this.name;
+		}
+		document.write(person.introduce());
+
+		//변수를 바꾸기위해선 메소드를 매번 생성해주어야한다.
+
+		function Person(name){
+			this.name = name;
+			this.introduce = function(){
+				return 'My name is '+this.name; 
+			}   
+		}
+		var p1 = new Person('egoing');
+		document.write(p1.introduce()+"<br />");
+
+		var p2 = new Person('leezche');
+		document.write(p2.introduce());
+
+		//함수를 생성자로 활용하면 생산성이높아짐.
+	</script>
+</body>
+</html>

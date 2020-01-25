@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script type="text/javascript">
+	window.onload = function() { //window.onload 가장마지막에 실행되도록하는기능
+		var date = document.getElementById("mon")
+		alert(date)
+		var date2 = document.getElementById("fri")
+		alert(date2.innerHTML)
+		document.getElementById("tue").innerHTML = "화요일이냐??"
+
+	}
+	function test() {
+		//	var username = document.getElementById("username").innerHTML 		//innerHTML은  열리고 닫히는태그에서 그 사이에있는걸 뽑아오기때문에
+		var username = document.getElementById("username").value //열리고 끝나는 input에는 value를 써야한다
+		alert(username)
+	}
+</script>
+</head>
+<body>
+	<h1>[자바 스크립트 처리]</h1>
+	<ul>
+		<li><p id="mon">월요일</p></li>
+		<li><p id="tue">화요일</p></li>
+		<li><p id="wed">수요일</p></li>
+		<li><p id="fri">금요일</p></li>
+	</ul>
+	<hr>
+	<ul>
+		<li>이름: <input type="text" id="username" placeholder="이름을 입력하세요 : "><input type="button" value="Click Me" onclick="test()">
+		</li>
+	</ul>
+	<script type="text/javascript">
+		var date = document.getElementById("mon")
+		alert(date)
+		var date2 = document.getElementById("fri")
+		alert(date2.innerHTML)
+		document.write(numberstring('egoing') + '<br>')
+		function numberstring(args) {
+			for (i = 0; i < 10; i++)
+				document.write(i + '\n')
+			return args
+		}
+
+		var k = function(a, b) {
+			var result = a + b
+			return result
+		}
+
+		var r = k(10, 20);
+		document.write(r + '<br>')
+		//b=22 전역변수, 근데 안씀 나중에 let으로 바꾼다
+
+		function a() {
+		}
+		a = {
+			b : function() {
+				document.write('wow' + '<br>')
+			}
+		}
+		a.b();
+
+		function cal(func, num) {
+			return func(num)
+		}
+		function increase(num) {
+			return num + 1
+		}
+		function decrease(num) {
+			return num - 1
+		}
+		document.write(cal(increase, 1) + '<br>')
+		document.write(cal(decrease, 1) + '<br>')
+
+		function cal2(mode) {
+			var funcs = {
+				plus : function(left, right) {
+					return left + right
+				},
+				minus : function(left, right) {
+					return left - right
+				}
+			}
+			return funcs[mode]
+		}
+		document.write(cal2('plus')(2, 1) + '<br>')
+		document.write(cal2('minus')(2, 1) + '<br>')
+
+		var process = [ function(input) {
+			return input + 10
+		}, function(input) {
+			return input * input
+		}, function(input) {
+			return input / 2
+		} ]
+		var input = 1
+		for (var i = 0; i < process.length; i++) {
+			input = process[i](input)
+		}
+		document.write(input + '<br>')
+	</script>
+</body>
+</html>

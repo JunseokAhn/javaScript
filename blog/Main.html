@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Welcome JS BLOG</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+	<fieldset>
+		<legend style="font-size: 200%; ">
+			<span>★</span>
+			WELCOM SC MASTERS !
+			<span>★</span>
+		</legend>
+		<a id="login" href="intro.html" style="font-size: 130%";>
+			로그인
+			<img id="loginImg" alt="" src="source/login1.png" height="20px">
+		</a>
+		<br>
+		<a id=signUp href="" style="font-size: 130%;" onclick="popup()">
+			회원가입
+			<img alt="" src="source/signUp.png" height="20px">
+		</a>
+		<div id=result></div>
+	</fieldset>
+	<script type="text/javascript">
+		var login = document.getElementById("login")
+		var loginImg = document.getElementById("loginImg")
+		login.onmouseover = function() {
+			loginImg.setAttribute("src", "source/login2.png")
+		}
+		login.onmouseout = function() {
+			loginImg.setAttribute("src", "source/login1.png")
+		}
+
+		/*var signUp = document.getElementById("signUp")
+		signUp.onclick = function(){
+			window.open("signUp.html", "")
+		}*/
+		function popup(){
+			window.open("signUp.html","", "height=350, width=350, left=300, resizable=none")
+		}
+		
+	</script>
+</body>
+</html>
