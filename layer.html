@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Layer test</title>
+	<style type="text/css">
+		.layer{
+			position: fixed;
+			height: 300px;
+			width: 100px;
+			background-color: blue;
+			z-index: -1;
+			top: 0px;
+			left: 0px;
+		}
+		.layer2{
+			position: fixed;
+			top: 0;
+			left: 100px;
+			background-color: green;
+
+		}
+	</style>
+</head>
+<body>
+<div>그냥 문장</div>
+<div class="layer">
+	고정된 레이어
+
+</div>
+<div class="layer2">
+	고정된레이어2
+	<div>내용1</div>
+	<div>내용2</div>
+	<div>내용3</div>
+</div>
+</body>
+</html>

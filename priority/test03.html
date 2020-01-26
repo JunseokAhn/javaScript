@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#div01 {
+	background-color: rgb(255, 0, 0);
+	width: 100px;
+	height: 100px;
+	/* 	position: static; */
+	/* position: fixed; */
+	/* margin: 10px 20px 30px 10px; */
+	margin: 02px auto;
+	/* 	margin-left: 10; */
+	border: 3px black solid;
+	border-style: ridge;
+	border-color: fuchsia;
+	/*  border-bottom-width: 3px;
+	border-style: solid;
+	border-color: black; */
+}
+
+#div02 {
+	background-color: #00FF00;
+	width: 100px;
+	height: 100px;
+	position: relative;
+	bottom: 100px;
+	left: 100px;
+	z-index: 9999;
+	text-shadow: 4px -1px 1px aqua, 10px 0px 0px red;
+}
+
+#div03 {
+	background-color: blue;
+	opacity: 0.5;
+	width: 111px;
+	height: 119px;
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	height: 119px;
+	z-index: 0;
+}
+</style>
+</head>
+<body>
+	<div id="div01">this rabbit</div>
+	<div id="div02">this is cow</div>
+	<div id="div03">this is pig</div>
+	<textarea rows="10" cols="15" style="resize: none; background-image:url('고양이2.jpg'); background-repeat: repeat; background-position: left top" >resize</textarea>
+</body>
+</html>
