@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function Person(name){
+			this.name = name;
+		}
+		Person.prototype.name=null;
+		Person.prototype.introduce = function(){
+			return 'My name is '+this.name; 
+		}
+		var p1 = new Person('egoing');
+		document.write(p1.introduce()+"<br />");
+
+
+
+		function Programmer(name){
+			this.name = name;
+		}
+		Programmer.prototype = new Person();
+
+		var p1 = new Programmer('egoing');
+		document.write(p1.introduce()+"<br />");
+
+		
+	</script>
+</body>
+</html>
