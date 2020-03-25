@@ -33,11 +33,11 @@
     </style>
   </head>
   <body>
-<!--    <div id="floating-panel">
-       <b>Start: </b>
+    <div id="floating-panel">
+     <!--  <b>Start: </b>
       <select id="start">
         <option value="chicago, il">Chicago</option>
-        <option value="37.5728359,126.9746922">St Louis</option>
+        <option value="st louis, mo">St Louis</option>
         <option value="joplin, mo">Joplin, MO</option>
         <option value="oklahoma city, ok">Oklahoma City</option>
         <option value="amarillo, tx">Amarillo</option>
@@ -48,11 +48,12 @@
         <option value="barstow, ca">Barstow</option>
         <option value="san bernardino, ca">San Bernardino</option>
         <option value="los angeles, ca">Los Angeles</option>
-      </select>
+      </select> -->
+      <input type="hidden" id="start">
       <b>End: </b>
       <select id="end">
         <option value="chicago, il">Chicago</option>
-        <option value="37.5728359,126.9746926">St Louis</option>
+        <option value="37.511600,127.061200">St Louis</option>
         <option value="joplin, mo">Joplin, MO</option>
         <option value="oklahoma city, ok">Oklahoma City</option>
         <option value="amarillo, tx">Amarillo</option>
@@ -64,9 +65,8 @@
         <option value="san bernardino, ca">San Bernardino</option>
         <option value="los angeles, ca">Los Angeles</option>
       </select>
-    </div> -->
-    <input type="hidden" id="start">
-    <input type="hidden" id="end">
+
+    </div>
     <div id="map"></div>
     <script>
       // Note: This example requires that you consent to location sharing when
@@ -76,7 +76,7 @@
       var map, infoWindow, pos;
       function initMap() {
       	map = new google.maps.Map(document.getElementById('map'), {
-      		center: {lat: -34.397, lng: 150.644},
+      		center: {lat: 37.511683, lng: 127.061255},
       		zoom: 16
       	});
       	infoWindow = new google.maps.InfoWindow;
@@ -93,7 +93,7 @@
            infoWindow.setContent('Location found.');
            infoWindow.open(map);
            map.setCenter(pos);
-           console.log(JSON.stringify(pos));
+             console.log(JSON.stringify(pos));
            document.getElementById('start').value = pos.lat + "," + pos.lng
          }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -113,10 +113,6 @@
         };
         document.getElementById('start').addEventListener('change', onChangeHandler);
         document.getElementById('end').addEventListener('change', onChangeHandler);
-        //document.getElementById('end').onchange(onChangeHandler);
-        //$('#end').onchange(onChangeHandler)
-        //원하는 화장실을 찝어서 길찾기버튼을 누르면 end의 밸류를 바꿔주고 onChangeHandler를 실행해야함.
-        //즉. 지금만들어야하는것은 화장실좌표가 있다고가정하고 그 마크랑 UI를 띄워줘야함
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -133,7 +129,6 @@
         origin: {query: document.getElementById('start').value},
         destination: {query: document.getElementById('end').value},
         travelMode: 'TRANSIT'
-
       },
       function(response, status) {
         if (status === 'OK') {
@@ -144,12 +139,14 @@
       });
     }
     
-    /* https://maps.googleapis.com/maps/api/directions/json?origin=41.43206,-81.38992&destination=41.43206,-81.38992&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA*/
+    /* https://maps.googleapis.com/maps/api/directions/json?origin=41.43206,-81.38992&destination=41.43206,-81.8992&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA*/
 
-    /*https://maps.googleapis.com/maps/api/directions/json?origin=37.5728359,126.9746922&destination=37.5728359,126.9746926&mode=transit&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA&callback=initMap*/
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA&callback=initMap">
+    /*https://maps.googleapis.com/maps/api/directions/json?origin=37.5728359,126.9746922&destination=37.5129907,127.1005382&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA*/
+/*https://maps.googleapis.com/maps/api/directions/
+json?origin=37.5728359,126.9746922&destination=37.5129907,127.1005382&mode=transit&departure_time=now&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA&callback=initMap*/
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA&callback=initMap">
 </script>
 
 
