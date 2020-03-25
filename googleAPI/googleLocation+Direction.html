@@ -34,7 +34,7 @@
   </head>
   <body>
     <div id="floating-panel">
-      <b>Start: </b>
+     <!--  <b>Start: </b>
       <select id="start">
         <option value="chicago, il">Chicago</option>
         <option value="st louis, mo">St Louis</option>
@@ -48,11 +48,12 @@
         <option value="barstow, ca">Barstow</option>
         <option value="san bernardino, ca">San Bernardino</option>
         <option value="los angeles, ca">Los Angeles</option>
-      </select>
+      </select> -->
+      <input type="hidden" id="start">
       <b>End: </b>
       <select id="end">
         <option value="chicago, il">Chicago</option>
-        <option value="st louis, mo">St Louis</option>
+        <option value="37.511600,127.061200">St Louis</option>
         <option value="joplin, mo">Joplin, MO</option>
         <option value="oklahoma city, ok">Oklahoma City</option>
         <option value="amarillo, tx">Amarillo</option>
@@ -64,6 +65,7 @@
         <option value="san bernardino, ca">San Bernardino</option>
         <option value="los angeles, ca">Los Angeles</option>
       </select>
+
     </div>
     <div id="map"></div>
     <script>
@@ -74,7 +76,7 @@
       var map, infoWindow, pos;
       function initMap() {
       	map = new google.maps.Map(document.getElementById('map'), {
-      		center: {lat: -34.397, lng: 150.644},
+      		center: {lat: 37.511683, lng: 127.061255},
       		zoom: 16
       	});
       	infoWindow = new google.maps.InfoWindow;
@@ -91,6 +93,8 @@
            infoWindow.setContent('Location found.');
            infoWindow.open(map);
            map.setCenter(pos);
+           document.getElementById('start').value = "37.511000,127.061200"
+           document.getElementById('end').value = "37.511683,127.061255"
          }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -135,9 +139,11 @@
       });
     }
     
-    /* https://maps.googleapis.com/maps/api/directions/json?origin=41.43206,-81.38992&destination=41.43206,-81.38992&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA*/
+    /* https://maps.googleapis.com/maps/api/directions/json?origin=41.43206,-81.38992&destination=41.43206,-81.8992&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA*/
 
-
+/*https://maps.googleapis.com/maps/api/directions/json?origin=37.5728359,126.9746922&destination=37.5129907,127.1005382&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA*/
+/*https://maps.googleapis.com/maps/api/directions/
+json?origin=37.5728359,126.9746922&destination=37.5129907,127.1005382&mode=transit&departure_time=now&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA&callback=initMap*/
   </script>
   <script async defer
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA&callback=initMap">
