@@ -73,14 +73,19 @@
       // prompted by your browser. If you see the error "The Geolocation service
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
-      var map, infoWindow, pos, marker, i;
+      var map, pos, marker, i;
+      window.onload = function() {
+        infowindow =new google.maps.InfoWindow()
+        
+      }
+      var infowindow;
       function initMap() {
-      	map = new google.maps.Map(document.getElementById('map'), {
-      		center: {lat: 37.511683, lng: 127.061255},
-      		zoom: 16,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        });
-      	infoWindow = new google.maps.InfoWindow();
+       map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 37.511683, lng: 127.061255},
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+       infoWindow = new google.maps.InfoWindow();
 
         // 내위치설정
         if (navigator.geolocation) {
@@ -114,7 +119,7 @@
         // create an array of markers based on a given "locations" array.
         // The map() method here has nothing to do with the Google Maps API.
         
-        marker = locations.map(function(location, i) {
+       /* marker = locations.map(function(location, i) {
           return new google.maps.Marker({
             position: {lat : location.lat, lng : location.lng},
             label: labels[i % labels.length],
@@ -122,36 +127,32 @@
             //title: location.contents,
             content: location.contents
           });
-          /*google.maps.event.addListener(this, 'click', function(i){
-           return function(){
-            console.log(JSON.stringify(this))
-            infowindow.setContent(location.contents);
-            infowindow.open(map,this);
-          }
-        })*/
-      });
+          
+        });*/
 
-      /*for (var i = 0; i < locations.length; i++) {  
-        marker = new google.maps.Marker({
-          id:i,
-          position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-          label: labels[i % labels.length],
-          map: map
-        });
+        for (var i = 0; i < locations.length; i++) {  
+          marker = new google.maps.Marker({
+            id:i,
+            position: new  google.maps.LatLng(locations[i].lat, locations[i].lng),
+            label: labels[i % labels.length],
+            map: map
+          });
 
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent(locations[i].contents);
-            infowindow.open(map, marker);
-          }
-        })(marker, i));*/
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              console.log(i);
+              infowindow.setContent(locations[i].contents);
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+        }
 
 
 
         // Add a marker clusterer to manage the markers.
 
-        var markerCluster = new MarkerClusterer(map, marker,
-          {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+       /* var markerCluster = new MarkerClusterer(map, marker,
+          {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});*/
 
 
         //길찾기설정
@@ -190,7 +191,7 @@
         }
       });
     }
-    
+
     //마커 위치설정
     var locations = [
     {lat: -31.563910, lng: 147.154312, contents: "이게되나?1"},
