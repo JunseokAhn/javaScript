@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html> 
+
+<head> 
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+
+  <title>Google Maps Multiple Markers</title> 
+
+  <script src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyDkQ00U2AUBQSS1CJF5YveL-1YWsTjaRGA&callback=initMap" 
+
+  type="text/javascript"></script>
+
+</head> 
+
+<body>
+
+  <div id="map" style="width: 500px; height: 400px;"></div>
+
+
+
+  <script type="text/javascript">
+
+    var locations = [
+
+    ['명동', 37.563576, 126.983431],
+
+    ['가로수길', 37.520300, 127.023008],
+
+    ['광화문', 37.575268, 126.976896],
+
+    ['남산', 37.550925, 126.990945],
+
+    ['이태원', 37.540223, 126.994005]
+
+    ];
+
+
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(37.549012, 126.988546),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+    var marker
+
+    for (var i = 0; i < locations.length; i++) {  
+
+      marker = new google.maps.Marker({
+
+        id:i,
+
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+
+        map: map
+
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+
+        return function() {
+
+          infowindow.setContent(locations[i][0]);
+
+          infowindow.open(map, marker);
+
+        }
+
+      })(marker, i));
+
+      if(marker)
+
+      {
+
+        marker.addListener('click', function() {
+
+          map.setZoom(15);
+
+          map.setCenter(this.getPosition());
+
+        });
+
+      }
+
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>
