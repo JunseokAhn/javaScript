@@ -50,7 +50,7 @@
         <option value="los angeles, ca">Los Angeles</option>
       </select> -->
       <input type="hidden" id="start">
-      <b>End: </b>
+      <!-- <b>End: </b>
       <select id="end">
         <option value="chicago, il">Chicago</option>
         <option value="37.511600,127.061200">St Louis</option>
@@ -64,8 +64,8 @@
         <option value="barstow, ca">Barstow</option>
         <option value="san bernardino, ca">San Bernardino</option>
         <option value="los angeles, ca">Los Angeles</option>
-      </select>
-
+      </select> -->
+      <input type="hidden" id="end">
     </div>
     <div id="map"></div>
     <script>
@@ -149,12 +149,20 @@
             marker.addListener('click', function() {
               map.setZoom(15);
               map.setCenter(this.getPosition());
-              var target = this.getPosition()
+              target = this.getPosition()
+              target = String(target)
+              target = target.replace('(', '');
+              target = target.replace(')', '');
+              target = target.replace(' ', '');
               console.log("target location : "+target);
+              document.getElementById('end').value = target;
+              console.log("start : "+document.getElementById('start').value);
+              console.log("end : "+document.getElementById('end').value);
+              onChangeHandler();
+
             });
           }
         }
-
 
 
         // Add a marker clusterer to manage the markers.
@@ -171,8 +179,9 @@
         var onChangeHandler = function() {
           calculateAndDisplayRoute(directionsService, directionsRenderer);
         };
+
         //document.getElementById('start').addEventListener('change', onChangeHandler);
-        document.getElementById('end').addEventListener('change', onChangeHandler);
+        // document.getElementById('end').addEventListener('change', onChangeHandler);
 
       }
 
