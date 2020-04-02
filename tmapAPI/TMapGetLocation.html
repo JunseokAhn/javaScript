@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>getLocation</title>
+	<script
+	src="https://apis.openapi.sk.com/tmap/jsv2?version=1&appKey=l7xx4afb1a7c147445528d8e83f3f1d4fea0"></script>
+	<script type="text/javascript">
+		var map, px, pos, vector_layer, point, pointFeature, latLng;
+		// Try HTML5 geolocation.
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				pos = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				};
+				alert(JSON.stringify(pos));
+        		/*infoWindow.setPosition(pos);
+        		infoWindow.setContent('Location found.');
+        		infoWindow.open(map);*/
+        		map.setCenter(new Tmapv2.LatLng(pos.lat,pos.lng));
+				
+			}, function() {
+				handleLocationError(true, infoWindow, map.getCenter());
+			});
+		} else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+      }
+	// 페이지가 로딩이 된 후 호출하는 함수입니다.
+	function initTmap(){
+		// map 생성
+		// Tmapv2.Map을 이용하여, 지도가 들어갈 div, 넓이, 높이를 설정합니다.
+		map = new Tmapv2.Map("map_div", {
+			center: new Tmapv2.LatLng(37.566481622437934,126.98502302169841),
+			width: "100%",
+			height: "400px"
+		});
+
+		
+	}
+	//지도 정보를 얻어오는 함수.
+	function Info() {
+		var center = map.getCenter();//map의 중심 좌표 값
+		var level = map.getZoom();//map의 ZoomLevel 값
+		var extent = map.getBounds();//map의 영역의 값
+		var result ='지도의 현재 중심좌표는'+center+'이고'+'\n지도의 현재 레벨은'+level+','+'\n지도의 현재 영역값은'+extent+'입니다.'; 
+		var resultDiv = document.getElementById("result");
+		resultDiv.innerHTML = result;
+	}
+</script>
+</head>
+<body onload="initTmap()"><!-- 맵 생성 실행 -->
+	<div id="map_div"></div>
+	<button onClick="Info()">지도 정보보기</button>
+	<p id="result"></p>
+</body>
+</html>
