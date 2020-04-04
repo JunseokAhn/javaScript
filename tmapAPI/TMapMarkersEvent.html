@@ -9,6 +9,9 @@
 		var map, i;
 		var marker;
 		var label;
+		function navigator(i){
+			alert(i)
+		}
 	// 페이지가 로딩이 된 후 호출하는 함수입니다.
 	function initTmap(){
 		// map 생성
@@ -42,6 +45,11 @@
  				lonlat: new Tmapv2.LatLng(37.565861,126.975194)
  			}
  			];
+ 			//경로안내 눌렀을때 길찾기되도록 온클릭이베트걸어줘야함.
+ 			var direction = [];
+ 			for(var i = 0; i<positions.length; i++){
+ 				direction[i]
+ 			}
  			
 		for (i = 0; i< positions.length; i++){//for문을 통하여 배열 안에 있는 값을 마커 생성
 			var lonlat = positions[i].lonlat;
@@ -63,7 +71,8 @@
 					index = i;
 					target = marker.getPosition();
 					
-					var content = "<input type='button' id='direction' value='경로안내'>";
+
+					var content = "<input type='button' id='direction["+i+"]' value='경로안내' onclick='navigator("+i+")'>";
 					console.log("target : "+i)
 					setTimeout(function(){
 						InfoWindow.setMap(null)
@@ -76,6 +85,8 @@
 							map : map
 						});
 					}, 1);
+
+					
 					// closeInfoWindow();
 					
 					// InfoWindow.setMap(null)
@@ -89,7 +100,7 @@
 				}
 			})(marker, i));
 		}
-
+		
 		
 		/*marker[0].addListener("click", function(evt) {
 			document.getElementById("result").innerHTML = 'index : '+0
