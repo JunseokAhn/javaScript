@@ -11,6 +11,7 @@
 		var totalMarkerArr = [];
 		var drawInfoArr = [];
 		var flag = 0;
+		var polyline_;
 
 		// HTML5의 geolocation으로 사용할 수 있는지 확인합니다      
 		if (navigator.geolocation) {
@@ -127,7 +128,7 @@
 		map.setZoom(15);
 	}  
 	function directions(endX, endY){
-		polyline_ = new Tmapv2.Polyline()
+		// polyline_ = new Tmapv2.Polyline()
 		// 2. 시작, 도착 심볼찍기
 		// 시작
 		/*marker_s = new Tmapv2.Marker(
@@ -198,7 +199,7 @@
 				for ( var i in resultData) { //for문 [S]
 					var geometry = resultData[i].geometry;
 					var properties = resultData[i].properties;
-					var polyline_;
+					// var polyline_;
 
 					if (geometry.type == "LineString") {
 						for ( var j in geometry.coordinates) {
@@ -272,8 +273,6 @@
 				}*/
 				
 
-
-
 				if(flag){
 					setTimeout(function(){
 						//혹은 이벤트를걸어놔서 한번더 navigators가실행되면 이 메소드가 실행되게한다면?
@@ -305,7 +304,7 @@
 						polyline_.setMap(null)
 					}	
 				};
-*/
+				*/
 				flag=1;
 
 			/*return function(polyline_){
