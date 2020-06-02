@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>callback1</title>
+</head>
+<body>
+	<!-- 익명의 함수를 사용, 혹은 함수를 정의해 그 함수의 이름을 파라메터로 넘기는방식을 사용 -->
+	<script type="text/javascript">
+		
+		var allUserData[];
+
+		//userdata는 method에서 직접실행시키지않았기때문에 method가아니라, method2의 option값이 들어가게된다.
+		function method2(userdata){
+			if(typeof userdata == "string")
+				console.log(userdata);
+			else if(typeof userdata == "object"){
+				for(var item in userdata)
+					console.log(item + " : " + userdata);
+			}
+		}
+
+		//실행순서2. 전달받은 유저데이터를 저장하고, 전달받은 method2(callback)에 유저데이터를넣어서 실행(콜백)
+		function method(option, callback){
+			allUserData.push(option);
+			callback(option);
+		};
+
+		//실행순서1. method2를 직접실행시키지않고 method2라는 함수를 method에 전달시킨다
+		method({name:"Junseok", speciality: "Javascript"}, method2);
+	</script>	
+</body>
+</html>
