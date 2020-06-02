@@ -7,7 +7,7 @@
 	<!-- 익명의 함수를 사용, 혹은 함수를 정의해 그 함수의 이름을 파라메터로 넘기는방식을 사용 -->
 	<script type="text/javascript">
 		
-		var allUserData[];
+		var allUserData = [];
 
 		//userdata는 method에서 직접실행시키지않았기때문에 method가아니라, method2의 option값이 들어가게된다.
 		function method2(userdata){
@@ -15,7 +15,7 @@
 				console.log(userdata);
 			else if(typeof userdata == "object"){
 				for(var item in userdata)
-					console.log(item + " : " + userdata);
+					console.log(item + " : " + userdata[item]);
 			}
 		}
 
