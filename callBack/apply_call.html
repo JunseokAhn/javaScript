@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		//this를 사용한 메서드를 콜백으로 사용할때의 문제점
+		var clientData = {
+			id : 094545,
+			fullname : "Not Set",
+			setUserName : function(firstName, lastName){
+				this.fullname = firstName + " " + lastName;
+			}
+		}
+
+		function method(firstName, lastName, callback, callbackObj){
+			callback.call(callbackObj, [firstName, lastName])
+		}
+		
+		/*function method(firstName, lastName, callback, callbackObj){
+			callback.apply(callbackObj, [firstName, lastName])
+		}*/
+
+
+		//clientData Object를 넣어주고, 자바스크립트 함수인 apply(or call)를 사용하면 콜백안의 this가 보호된다.
+		method("Junseok", "Ahn", clientData.setUserName, clientData);
+
+		console.log(clientData.fullname);
+
+
+		//그냥 콜백을이용해 함수안의 this를 사용할경우, 이경우의 this는 method의 this가 되므로, clientData.fullname이아닌 window.fullname에 저장이됨
+		console.log(window.fullname);
+	</script>
+</body>
+</html>
