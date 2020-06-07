@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//promise 선언
+		var promise = function(param){
+
+			return new Promise(function(resolve, reject){
+
+				window.setTimeout(function(){
+
+					if(param){
+						resolve("succeess");
+					}
+					else{
+						reject(Error("fail"));
+					}
+				},3000)
+			});
+
+		};
+
+		promise(true)
+		.then(JSON.parse)
+		.catch(
+			function(){
+				window.alert("error catch")
+			})
+		.then(
+			function(text){
+				console.log(text);
+			}, function(error){
+				console.error(error);
+			})
+
+		</script>
+	</body>
+	</html>
