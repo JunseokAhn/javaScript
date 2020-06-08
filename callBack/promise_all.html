@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var promise1 = new Promise(function(resolve, reject){
+
+			// 비동기를 표현하기 위해 setTimeout 함수를 사용
+			setTimeout(function(){
+				console.log("첫번째 Promise 완료");
+				resolve("11111");
+			}, Math.random()*2000 + 1000);
+		});
+
+		var promise2 = new Promise(function(resolve, reject){
+			
+			// 비동기를 표현하기 위해 setTimeout 함수를 사용
+			setTimeout(function(){
+				console.log("두번째 Promise 완료");
+				resolve("22222");
+			}, Math.random()*1000 + 1000);
+		});	
+
+		// values가 왜 앞의 promise들을 받아오는지는 모르겠음.
+		Promise.all([promise1, promise2]).then(function(values){
+
+			// 모두 완료됨. (2) ["11111", "22222"]
+			console.log("모두 완료됨.", values);
+		});
+	</script>
+</body>
+</html>
