@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var promise1 = function(){
+
+			return new Promise(function(resolve, reject){
+
+				setTimeout(function(){
+					console.log("첫번째 promise 완료");
+					resolve("11111");
+				}, Math.random()*2000 + 1000);
+			})
+		}
+
+		var promise2 = function(){
+
+			return new Promise(function(resolve, reject){
+
+				setTimeout(function(){
+					console.log("두번째 promise 완료");
+					resolve("22222");
+				}, Math.random()*1000);
+			})
+		}
+
+		Promise.all([promise1(), promise2()]).then(function(values){
+			console.log("모두 완료됨", values);
+		});
+	</script>
+</body>
+</html>
