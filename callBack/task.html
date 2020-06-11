@@ -29,5 +29,15 @@
 		// 4 - task1 종료: script end 출력
 		console.log('script end')
 	</script>
+	<p>
+		setTimeout은 주어진 delay 를 기다린 다음 콜백을 위한 새로운 task 를 예약한다. 이것이 setTimeout로그가 script end로그 이후에 출력되는 이유이다. <br><br>
+
+		일반적으로 microtask 는 현재 실행되고 있는 script 바로 다음에 발생해야하는 작업으로 예약된다. <br>
+		microtask 의 대기열은 다른 자바스크립트가 실행중이 아니거나 task 가 끝난 후에 처리된다.<br>
+		observer callback이나 promise callback이 대표적인 microtask 다.<br><br>
+
+		promise 에 대해서 then(resolve, reject)이 호출되면 그 즉시 microtask 가 대기열에 들어간다.<br>
+		이것이 바로 promise1과 promise2가 script end 다음에 출력되는 이유이다.<br>
+	</p>
 </body>
 </html>
