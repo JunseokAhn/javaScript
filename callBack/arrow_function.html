@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function goWork(time1, timeStartWork) {
+			return wakeUp(time1).then(function(time2) {
+				return tackSubway(time2);
+			}).then(function(time3) {
+				return takeOffSubway(time3);
+			}).then(function(time4) {
+				return arriveWork(time4)
+			}).then(function(arrivalTime) {
+				if (arrivalTime > timeStartWork) {
+					console.log("goWork");
+				}
+			});
+		}
+
+		function goWork2(time1, timeStartWork) {
+			return wakeUp(time1)
+			.then(time2 => tackSubway(time2))
+			.then(time3 => takeOffSubway(time3))
+			.then(time4 => arriveWork(time4))
+			.then(arrivalTime => {
+				if (arrivalTime > timeStartWork) {
+					console.log("goWork2");
+				}
+			})
+		}
+	</script>
+</body>
+</html>
