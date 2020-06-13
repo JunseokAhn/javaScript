@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		async function goWork(time1, timeStartWork) {
+			const time2 = await wakeUp(time1)
+			const time3 = await takeSubway(time2)
+			const time4 = await takeOffSubway(time3)
+			const arrivalTime = await arriveWork(time4)
+			if (arrivalTime > timeStartWork) {
+				console.log("goWork");
+			}
+		}
+	</script>
+</body>
+</html>
