@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function test () {
+			return new Promise(function (resolve, reject) {
+				for(let i=0; i < 5; i++) {
+					setTimeout(function(){
+						console.log(i);
+						resolve();
+					}, i*1000);
+				}
+			})
+		}
+
+		test().then(function(){
+			console.log('Done')
+		});
+
+		//0 Done 1 2 3 4
+		//resolve는 then을 호출한다.
+
+
+
+
+		//재귀를 이용한 for문구현
+		const array = [1, 2, 3, 4, 5];
+
+		let index = 0;
+
+		test1();
+
+		function test1 () {
+			const item = array[index]
+
+			if(array.length === index){
+				return console.log('done');
+			}else{
+				test2(item).then(test1);
+				index++; 
+			}
+		}
+
+		function test2(item){
+			return new Promise(function (resolve, reject) {
+				setTimeout(function(){
+					console.log(item);
+					resolve();
+				},1000)
+			});
+		}
+
+		//0 1 2 3 4 5 done
+
+	</script>
+</body>
+</html>
