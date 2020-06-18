@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		function delay(item) {
+			return new Promise(function(resolve, reject){
+				setTimeout(function(){
+					console.log(item);
+					resolve();
+				},1000)
+			})
+		}
+
+		async function test(array) {
+			for(let i=0; i< array.length; i++){
+				await delay(array[i]);
+			}
+			console.log('Done');
+		}
+
+		test([1,2,3,4,5]);
+
+		//1 2 3 4 5 done
+		//resolve가 없으면 1
+		//resolve가 나올때까지 awit 
+
+	</script>
+</body>
+</html>	
