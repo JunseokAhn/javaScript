@@ -5,6 +5,8 @@
 </head>
 <body>
 	<script type="text/javascript">
+
+		//실행 대기 실행 대기
 		async function goWork(time1, timeStartWork) {
 			const time2 = await wakeUp(time1)
 			const time3 = await takeSubway(time2)
@@ -13,6 +15,22 @@
 			if (arrivalTime > timeStartWork) {
 				console.log("goWork");
 			}
+		}
+
+		//만약 서로 실행순서에따른 연관관계가없다면
+		//한번에 실행하고 완료되는대로 대기하면 좀더 빨리 처리가능(병렬처리)
+		async function goWork2(time1, timeStartWork) {
+			const wakeUpPromise = wakeUp();
+			const takeSubwayPromise = takeSubway();
+			const takeOffSubwayPromise = takeOffSubway();
+			const arriveWorkPromise = arriveWork();
+			
+			const wakeUp = await wakeUpPromise();
+			const takeSubway = await takeSubwayPromise();
+			const takeOffSubway = await takeOffSubwayPromise();
+			const arrivalTime = await arriveWorkPromise();
+			
+			console.log("goWork");
 		}
 	</script>
 </body>
